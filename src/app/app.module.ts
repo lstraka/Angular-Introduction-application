@@ -10,6 +10,7 @@ import { PostDetailComponent } from './components/posts/post-detail/post-detail.
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import { CursorLinkDirective } from './cursor-link.directive';
+import { CreateNewComponent } from './components/users/create-new/create-new.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CursorLinkDirective } from './cursor-link.directive';
     UserDetailComponent,
     PostsComponent,
     PostDetailComponent,
-    CursorLinkDirective
+    CursorLinkDirective,
+    CreateNewComponent
   ],
   imports: [
     BrowserModule,

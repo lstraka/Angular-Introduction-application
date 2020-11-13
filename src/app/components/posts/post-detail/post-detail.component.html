@@ -7,4 +7,7 @@
     <textarea class="form-input" rows="5" id="body" name="body" [(ngModel)]="post.body"></textarea>
   </form>
   <p>{{post.createdAt | date: 'dd.MM.yyyy HH:mm'}}</p>
+
+  <button (click)="edit()">Edit post</button>
+  <button (click)="removePost()">Remove post</button>
 </div>

@@ -22,7 +22,15 @@ export class PostService {
     return this.http.get<Post[]>(this.baseURL + 'posts');
   }
 
-  public setPostSubject(post: Post): void{
+  public setPostSubject(post: Post): void {
     this.postSubject.next(post);
+  }
+
+  public editPost(post: Post, id: number): Observable<Post> {
+    return this.http.put<Post>(`${this.baseURL}posts/${id}`, post);
+  }
+
+  public removePost(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.baseURL}posts/${id}`);
   }
 }

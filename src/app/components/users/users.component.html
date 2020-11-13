@@ -2,7 +2,7 @@
   <h2>Table of all users</h2>
 
   <table>
-    <thead>
+    <thead appCursorLink>
       <th>First name</th>
       <th>Last name</th>
       <th>Username</th>
@@ -12,7 +12,7 @@
       <th>Address</th>
     </thead>
     <tbody>
-      <tr *ngFor="let user of users" (click)="chooseUser(user)" [appCursorLink]>
+      <tr appCursorLink *ngFor="let user of users" (click)="chooseUser(user)">
         <td>{{user.firstname}}</td>
         <td>{{user.lastname}}</td>
         <td>{{user.username}}</td>
@@ -26,7 +26,7 @@
 </div>
 
 <div>
-  <h3>User details</h3>
+  <h3 appCursorLink >User details</h3>
   <app-user-detail [userId]="selectedUserID"></app-user-detail>
 </div>
 <!--

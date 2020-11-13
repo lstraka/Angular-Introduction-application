@@ -10,6 +10,10 @@ export class User {
   username: string;
   hobbies: Hobby[];
   roleId: number;
+
+  constructor(){
+    this.hobbies = [];
+  }
 }
 
 export class Hobby {

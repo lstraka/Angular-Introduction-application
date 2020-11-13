@@ -1,3 +1,4 @@
+import { Role } from './../../models/role';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -19,5 +20,13 @@ export class UserService {
 
   public getUserByID(userId: number): Observable<User> {
     return this.http.get<User>(this.baseURL + 'users/' + userId);
+  }
+
+  public getRoles(): Observable<Role[]> {
+    return this.http.get<Role[]>(`${this.baseURL}role`);
+  }
+
+  public createUser(user: User): Observable<User> {
+    return this.http.post<User>(`${this.baseURL}users`, user);
   }
 }

@@ -1,0 +1,98 @@
+<p>create-new works!</p>
+
+<div style="width: 50%; padding: 1rem">
+  <form (ngSubmit)="newuser.valid? createUser(): null" name="newuser" #newuser="ngForm">
+    <label for="firstName">First name:</label>
+    <input
+      id="firstName"
+      class="form-input"
+      name="firstName"
+      type="text"
+      [(ngModel)]="user.firstname"
+      #firstName="ngModel"
+      required
+      minlength="5"
+    />
+    <div *ngIf="newuser.submitted && firstName.invalid">Its not a valid  </div>
+    <br />
+    <label for="lastName">Last name:</label>
+    <input
+      id="lastName"
+      class="form-input"
+      name="lastName"
+      type="text"
+      [(ngModel)]="user.lastname"
+    />
+    <br />
+    <label for="username">Username:</label>
+    <input
+      id="username"
+      class="form-input"
+      name="username"
+      type="text"
+      [(ngModel)]="user.username"
+    />
+    <br />
+    <label for="email">Email:</label>
+    <input
+      id="email"
+      class="form-input"
+      name="email"
+      type="email"
+      [(ngModel)]="user.email"
+    />
+    <br />
+    <label for="phone">Phone number:</label>
+    <input
+      id="phone"
+      class="form-input"
+      name="phone"
+      type="text"
+      [(ngModel)]="user.phoneNumber"
+    />
+    <br />
+    <label for="address">Address:</label>
+    <input
+      id="address"
+      class="form-input"
+      name="address"
+      type="text"
+      [(ngModel)]="user.address"
+    />
+    <br />
+    <label for="date">Date of birth:</label>
+    <input
+      id="date"
+      class="form-input"
+      name="date"
+      type="date"
+      [(ngModel)]="user.birthDate"
+    />
+    <br />
+    <p>User Hobbies</p>
+
+    <ng-container *ngFor="let hobby of user.hobbies; let i = index">
+      {{ hobby.name }}
+      <input
+        class="form-input"
+        [name]="'hobby-' + i"
+        [(ngModel)]="hobby.name"
+      />
+    </ng-container>
+    <button type="button" (click)="addHobby()">add hobby</button>
+    <br />
+    <label for="roleID">Role of User</label>{{ user.roleId }}
+    <select
+      id="roleID"
+      name="roleId"
+      class="form-input"
+      [(ngModel)]="user.roleId"
+    >
+      <option *ngFor="let role of roles" [value]="role.id">
+        {{ role.title }}
+      </option>
+    </select>
+    <br />
+    <button type="submit" [disabled]="firstName.invalid">Create user</button>
+  </form>
+</div>

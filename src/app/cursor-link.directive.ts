@@ -7,12 +7,13 @@ export class CursorLinkDirective {
 
   constructor(private el: ElementRef) { }
 
-  @HostListener('mouseenter')onMouseEnter() {
-  console.log('in', this.el);
-  this.changeCursor()
-}
+  @HostListener('mouseenter') onMouseEnter() {
+    // console.log('in', this.el);
+    // this.changeCursor()
+    this.el.nativeElement.style.cursor = 'pointer';
+  }
 
-changeCursor(){
-  this.el.nativeElement.style.cursor='pointer';
-}
+  changeCursor() {
+    this.el.nativeElement.style.cursor = 'pointer';
+  }
 }
