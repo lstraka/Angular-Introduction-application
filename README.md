@@ -1,5 +1,7 @@
-# Test
-#Important
+# Test - Sample application where we try to cover all learned features into the one project
+
+# Important information
+
 For a working fake backend you need to have installed `npm install json-server -g` and then with the command `json-server --watch db.json` you serve this backend. example of db.json is part of root in this project.
 
 
