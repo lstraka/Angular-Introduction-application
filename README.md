@@ -1,4 +1,7 @@
 # Test
+#Important
+For a working fake backend you need to have installed `npm install json-server -g` and then with the command `json-server --watch db.json` you serve this backend. example of db.json is part of root in this project.
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
 
