@@ -1,4 +1,4 @@
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { Post } from './../../models/post';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -13,9 +13,15 @@ export class PostService {
   private postSubject: BehaviorSubject<Post>;
   public postObservable: Observable<Post>;
 
+  private postsUpdateSubject: Subject<boolean>;
+  public postUpdateObs: Observable<boolean>;
+
   constructor(private http: HttpClient) {
     this.postSubject = new BehaviorSubject<Post>(null);
     this.postObservable = this.postSubject.asObservable();
+
+    this.postsUpdateSubject = new Subject<boolean>();
+    this.postUpdateObs = this.postsUpdateSubject.asObservable();
   }
 
   public getAllPosts(): Observable<Post[]> {
@@ -32,5 +38,9 @@ export class PostService {
 
   public removePost(id: number): Observable<any> {
     return this.http.delete<any>(`${this.baseURL}posts/${id}`);
+  }
+
+  public notifyPostsUpdate(): void {
+    this.postsUpdateSubject.next(true);
   }
 }

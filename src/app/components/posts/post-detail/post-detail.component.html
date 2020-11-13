@@ -1,13 +1,28 @@
 <div *ngIf="post">
-  <form>
+  <form [formGroup]="postDetailForm" (ngSubmit)="edit()">
     <label for="title">Title</label>
-    <input class="form-input" id="title" name="title" [(ngModel)]="post.title">
-    <br>
+    <input formControlName="title" class="form-input" id="title" name="title" />
+    <div *ngIf="postDetailForm.controls.title.errors">
+      Something went wrong
+      <div *ngIf="postDetailForm.controls.title.errors.minlength">
+        very short text
+      </div>
+      <div *ngIf="postDetailForm.controls.title.errors.required">
+        title is required
+      </div>
+    </div>
+    <br />
     <label for="body">Body</label>
-    <textarea class="form-input" rows="5" id="body" name="body" [(ngModel)]="post.body"></textarea>
-  </form>
-  <p>{{post.createdAt | date: 'dd.MM.yyyy HH:mm'}}</p>
+    <textarea
+      formControlName="body"
+      class="form-input"
+      rows="5"
+      id="body"
+      name="body"
+    ></textarea>
+    <p>{{ post.createdAt | date: "dd.MM.yyyy HH:mm" }}</p>
 
-  <button (click)="edit()">Edit post</button>
-  <button (click)="removePost()">Remove post</button>
+    <button type="submit">Edit post</button>
+    <button type="button" (click)="removePost()">Remove post</button>
+  </form>
 </div>
