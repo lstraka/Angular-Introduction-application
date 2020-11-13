@@ -1,0 +1,20 @@
+
+<div style="float: left; width: 75%;">
+  <div
+    *ngFor="let post of posts"
+    style="border: solid; border-color: black; margin: 0.5rem; padding: 0.5rem"
+  >
+    <h5>{{ post.title }}</h5>
+    <div style="text-align: center">
+      {{ post.body }}
+    </div>
+    <div style="text-align: right;">
+      <button  (click)="showDetail(post)">Show detail</button>
+    </div>
+  </div>
+</div>
+
+<div style="float: right; width: 25%;">
+
+  <app-post-detail></app-post-detail>
+</div>

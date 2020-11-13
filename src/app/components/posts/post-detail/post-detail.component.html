@@ -1,0 +1,10 @@
+<div *ngIf="post">
+  <form>
+    <label for="title">Title</label>
+    <input class="form-input" id="title" name="title" [(ngModel)]="post.title">
+    <br>
+    <label for="body">Body</label>
+    <textarea class="form-input" rows="5" id="body" name="body" [(ngModel)]="post.body"></textarea>
+  </form>
+  <p>{{post.createdAt | date: 'dd.MM.yyyy HH:mm'}}</p>
+</div>

@@ -1,0 +1,30 @@
+<p>user-detail works!</p>
+<div *ngIf="user">
+<form>
+  <label for="firstName">First name:</label>
+  <input id="firstName" name="firstName" type="text" [disabled]="!editMode" [(ngModel)]="user.firstname">
+<br>
+  <label for="lastName">Last name:</label>
+  <input id="lastName" name="lastName" type="text" [disabled]="!editMode" [(ngModel)]="user.lastname">
+  <br>
+  <label for=username>Username:</label>
+  <input id="username" name="username" type="text" [disabled]="!editMode" [(ngModel)]="user.username">
+  <br>
+  <label for="email">Email:</label>
+  <input id="email" name="email" type="email" [disabled]="!editMode" [(ngModel)]="user.email">
+  <br>
+  <label for="phone">Phone number:</label>
+  <input id="phone" name="phone" type="text" [disabled]="!editMode" [(ngModel)]="user.phoneNumber">
+  <br>
+  <label for="date">Date of birth:</label>
+  <input id="date" name="date" type="datetime" [disabled]="!editMode" [(ngModel)]="user.birthDate">
+  <br>
+  <p>User Hobbies</p>
+  <ul>
+    <li *ngFor="let hobby of user.hobbies">{{hobby.name}}</li>
+  </ul>
+
+</form>
+<label for="edit">Edit mode</label>
+<input id="edit" type="checkbox" [(ngModel)]="editMode">
+</div>

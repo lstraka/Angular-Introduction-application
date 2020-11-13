@@ -1,0 +1,42 @@
+<div>
+  <h2>Table of all users</h2>
+
+  <table>
+    <thead>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Username</th>
+      <th>Date of birth</th>
+      <th>Email </th>
+      <th>Phone number</th>
+      <th>Address</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users" (click)="chooseUser(user)" [appCursorLink]>
+        <td>{{user.firstname}}</td>
+        <td>{{user.lastname}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.birthDate | date :'dd.MM.yyyy'}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.phoneNumber}}</td>
+        <td>{{user.address}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div>
+  <h3>User details</h3>
+  <app-user-detail [userId]="selectedUserID"></app-user-detail>
+</div>
+<!--
+id: number;
+firstname: string;
+lastname: string;
+birthDate: Date;
+email: string;
+phoneNumber: string;
+address: string;
+username: string;
+hobbies: Hobby[];
+roleId: number; -->
